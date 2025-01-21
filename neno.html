@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<body style="background-color: black; color: orange; font-family: Arial, sans-serif; text-align: center; padding-top: 50px;">
+
+    <!-- Calculator Container -->
+    <div style="
+        background-color: orange; 
+        padding: 20px; 
+        border-radius: 10px; 
+        width: 300px; 
+        margin: 0 auto;
+    ">
+        <h2 style="color: black;">Calculator</h2>
+        
+        <!-- Display Screen -->
+        <input 
+            type="text" 
+            id="display" 
+            style="
+                width: 100%; 
+                padding: 10px; 
+                font-size: 18px; 
+                text-align: right; 
+                margin-bottom: 10px; 
+                border: 1px solid black; 
+                border-radius: 5px;
+            " 
+            disabled
+        />
+        
+        <!-- Buttons -->
+        <div>
+            <button onclick="appendValue('1')" style="width: 25%; padding: 10px; font-size: 18px; margin: 5px;">1</button>
+            <button onclick="appendValue('2')" style="width: 25%; padding: 10px; font-size: 18px; margin: 5px;">2</button>
+            <button onclick="appendValue('3')" style="width: 25%; padding: 10px; font-size: 18px; margin: 5px;">3</button>
+            <button onclick="appendValue('+')" style="width: 25%; padding: 10px; font-size: 18px; margin: 5px; background-color: black; color: orange;">+</button>
+        </div>
+        <div>
+            <button onclick="appendValue('4')" style="width: 25%; padding: 10px; font-size: 18px; margin: 5px;">4</button>
+            <button onclick="appendValue('5')" style="width: 25%; padding: 10px; font-size: 18px; margin: 5px;">5</button>
+            <button onclick="appendValue('6')" style="width: 25%; padding: 10px; font-size: 18px; margin: 5px;">6</button>
+            <button onclick="appendValue('-')" style="width: 25%; padding: 10px; font-size: 18px; margin: 5px; background-color: black; color: orange;">-</button>
+        </div>
+        <div>
+            <button onclick="appendValue('7')" style="width: 25%; padding: 10px; font-size: 18px; margin: 5px;">7</button>
+            <button onclick="appendValue('8')" style="width: 25%; padding: 10px; font-size: 18px; margin: 5px;">8</button>
+            <button onclick="appendValue('9')" style="width: 25%; padding: 10px; font-size: 18px; margin: 5px;">9</button>
+            <button onclick="appendValue('*')" style="width: 25%; padding: 10px; font-size: 18px; margin: 5px; background-color: black; color: orange;">*</button>
+        </div>
+        <div>
+            <button onclick="clearDisplay()" style="width: 25%; padding: 10px; font-size: 18px; margin: 5px; background-color: black; color: orange;">C</button>
+            <button onclick="appendValue('0')" style="width: 25%; padding: 10px; font-size: 18px; margin: 5px;">0</button>
+            <button onclick="calculateResult()" style="width: 25%; padding: 10px; font-size: 18px; margin: 5px; background-color: black; color: orange;">=</button>
+            <button onclick="appendValue('/')" style="width: 25%; padding: 10px; font-size: 18px; margin: 5px; background-color: black; color: orange;">/</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.getElementById('display');
+
+        function appendValue(value) {
+            display.value += value;
+        }
+
+        function clearDisplay() {
+            display.value = '';
+        }
+
+        function calculateResult() {
+            try {
+                display.value = eval(display.value);
+            } catch (error) {
+                alert('Invalid input');
+                alert("SYNTAX ERROR")
+                clearDisplay('0');
+            }
+        }
+    </script>
+</body>
+</html>
